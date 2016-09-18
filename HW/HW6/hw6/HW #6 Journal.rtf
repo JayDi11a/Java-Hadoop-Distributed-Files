@@ -1,0 +1,40 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf130
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww13780\viewh15460\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Gerald Trotman\
+11/19/2015\
+CSCI E-55\
+\
+Journal:\
+\
+Let me start by saying that I wished I had been able to journal the process step by step as I was setting it up because I am sure I may leave out a crucial piece of information that might give a more accurate picture of what I may have either missed or implemented incorrectly.\
+\
+Nonetheless, I started by clicking on the Homework #6 link and then from there to the Getting Started link. I went to the Hadoop 2.7.1\
+link and selected the upper most mirror site link. I clicked the link and what the mac does is extract the hadoop-2.7.1 folder and dump the .tar.gz AND .zip file into the trash. I moved the .tar.gz file from the trash and into the usr/share folder where the computer then prompted me for my credentials.\
+\
+I implemented \'93sudo tar xfz hadoop-2.1.7.tar.gz\'94 and that didn\'92t work. I actually spoke with another classmate about that and he was having the same issue. I immediately noticed that I was having permissions issues and was perplexed because I knew I had permissions to do act on that folder. I spoke with Paul who tried a bunch of permissions checks before finally looking up online and verifying that in El Capitan, it disables utility permissions and requires that you have to boot your computer into restore mode and use Terminal to turn them on. \
+\
+After that, I went back, implemented the same process using the tar extraction method specified in the instructions and was unsuccessful  again. (This is the part where I forget which happened first) But eventually, I spoke to Paul and he suggested that I move to usr/local instead of usr/share. I did that used the tar method specified in the homework instructions and was unsuccessful again. I Thought that at this point it must be my method of downloading the hadoop file or possibly the hadoop file itself. I tried to implement the mirror process using the \'93curl\'94  but that wasn\'92t successful only because admittedly, I probably wasn\'92t doing it correctly. It wasn\'92t until I looked up how to extract .tar.gz files that I came across this link that suggested I extract using this method: \'93tar -zxvf hadoop-2.1.7.tar.gz\'94 that it finally worked.\
+\
+I finally moved on to the export methods where you run under a bash shell. I wasn\'92t sure if that meant typing \'93bash\'94 and then the export methods or simply opening your terminal window using export in the terminal window that prompts bash by default. So I did it both ways. (Hopefully at this point you can tell that I didn\'92t know the difference because this will come into play later.)\
+\
+I went ahead and used VIM to open the ~/.bash_profile only to realize that I could only read it. I looked up the process on how to write to a file that needs permissions and found the command \'93:w !sudo tee %\'94. Then I went ahead and edited the file as suggested adding the environment variables and moved on. I verified the path command and then continued to verify the hadoop version which spat out the desired specs.\
+\
+I went ahead to the next step in creating the environment variable for hadoop-deployed as well as the folder and their configuration files. I went ahead and used VIM to edit the core-site.xml and hdfs-site.xml files and used the same method to write as I did with the bash profile.\
+\
+I already have ssh on my machine so creating the keygen and storing it so that one doesn\'92t have to be prompted for passwords when logging into the local host went off well.\
+\
+The soft link instructions were confusing only because I wasn\'92t sure if you were supposed to create the soft link in the bin folder in a java folder or just in the bin folder. But once I figured that out I went ahead and ran the hfs namnode - format command as specified and that ran without incident. I ran start-dfs.sh and that failed. I read the error and it seemed to tell me the error had to do with not being able to create a log folder and write to it. I looked up the error and that prompted me to change the permissions of the directory that it is trying to write logs to by doing the following: sudo chown -R hadoop /usr/local/hadoop. That fixed that. I ran jps and it gave the NameNode, the SecondaryNameNode and the DataNode as expected. On to implementing Word Count and the jabberwocky and flea files.\
+\
+I downloaded the wordcount.zip file from the link specified. I wasn\'92t sure where to put it so I just moved it to my documents folder. This is where the chaos ensued. I spent several days trying to understand and configure the correct CLASSPATH in order to get the WordCount.java file to compile. After days of chain emailing with Paul, I managed to deepen my understanding of CLASSPATH configuration. And things I didn\'92t understand I managed to try from stack overflow which eventually got me to compile the WordCount.java file. The problem was that I wasn\'92t able to replicate it. And as of now I still can\'92t replicate it. Paul and I had suspected that the issue was with the configuration of Java. But after I showed him my compiling error, he now suspects that there is something else wrong and needs to take a look at my machine. One thing that I suspect that contributed greatly to my issue was the fact that I didn\'92t realize that I was toggling between the root and my own user account and its corresponding bash_profiles. They were grossly out of sync and I realized that how I was editing and saving the bash profile was inconsistent which lead to the bash profiles being out of sync.\
+\
+Realizing that I had all I needed to move on to running the jabberwocky file against WordCount, I put down the peculiarities going on with why I wasn\'92t able to recompile the WordCount.java file and ran: hadoop WordCount -fs file:/// -jt local input output without incident. I then attempted to run it on the cluster using the steps given in making the input directory and then copying the jabberwocky file onto the cluster input folder and that seemed to run without incident only to note that in one of the instruction versions, it calls it a jabberwocky.txt file when it is a jabberwocky file. This became an important distinction because I thought that the instructions for the homework assignment extra credit required running the fleas on the cluster as well which I was unsuccessful in doing after running it successfully locally. It kept telling me that it couldn\'92t find the fleas1.txt and fleas2.txt files couldn\'92t be found. \
+\
+So at this point, I managed to complete the assignment but as it stands now, I can\'92t seem to recreate compiling the WordCount.java file and a new issue that I am running into is that I can\'92t seem to have hadoop report back to me a DataNode after running jps. I tried some troubleshooting methods like removing the /tar/hadoop-Gerald/* contents, reformatting and restarting but that didn\'92t work. And from what I\'92ve read, there is something about the UUID of the NameNode, SecondaryNameNode and DataNode that can become corrupt which I suspect is the case.\
+\
+\
+\
+}

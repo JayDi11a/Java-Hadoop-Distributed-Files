@@ -1,0 +1,21 @@
+JUnit version 4.12
+.NO_LOCKING, 1 -- OK: 2984.575453 transactions/msec
+NO_LOCKING, 2 -- BROKEN: 4843.066766 transactions/msec	Expected total balances: 100000	Actual: 104699
+NO_LOCKING, 5 -- BROKEN: 4819.951865 transactions/msec	Expected total balances: 100000	Actual: 114857
+NO_LOCKING, 10 -- BROKEN: 4765.013534 transactions/msec	Expected total balances: 100000	Actual: 127445
+NO_LOCKING, 20 -- BROKEN: 5044.092842 transactions/msec	Expected total balances: 100000	Actual: 133187
+LOCK_BANK, 1 -- OK: 2959.513240 transactions/msec
+LOCK_BANK, 2 -- OK: 2468.933747 transactions/msec
+LOCK_BANK, 5 -- OK: 2514.550760 transactions/msec
+LOCK_BANK, 10 -- OK: 2601.147283 transactions/msec
+LOCK_BANK, 20 -- OK: 2555.364447 transactions/msec
+LOCK_ACCOUNTS, 1 -- OK: 2316.137185 transactions/msec
+LOCK_ACCOUNTS, 2 -- OK: 3791.331605 transactions/msec
+LOCK_ACCOUNTS, 5 -- OK: 3517.061738 transactions/msec
+LOCK_ACCOUNTS, 10 -- OK: 3382.017603 transactions/msec
+LOCK_ACCOUNTS, 20 -- OK: 3203.216577 transactions/msec
+........
+Time: 29.422
+
+OK (9 tests)
+

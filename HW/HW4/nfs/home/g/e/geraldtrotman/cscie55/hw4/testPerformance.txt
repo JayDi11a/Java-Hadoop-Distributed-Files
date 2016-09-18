@@ -1,0 +1,8 @@
+Answer to the following questions regarding testPerformance output:
+
+
+1. The NO_LOCKING test succeeds for one thread and fails for the rest because the two method calls initally don't depend on eachother but subsequent iterations do depend on each other and one calculation needs the dependency of the other in order to be accurate. Implementing the withdraw and deposit methods asynchronously becomes an immediate problem.
+
+2. As threads increase from 1 to 20 for LOCK_BANK which synchronizes the entire bank object, it seems that the amount of transactions per second either normalize or slowly decreases as threads increase. It's because concurrency isn't being implemented and you still have the issue of asynchronous threads doing the withdrawal and the deposit.
+
+3. LOCK_BANK transactions decrease and normalize to fewer than LOCK_ACCOUNTS transactions that increase and eventually normalizee to almost double the amount of transactions which makes sense. Synchronizing the two methods gives you double the amount of performance than treating the two methods as independent and asynchronous. 

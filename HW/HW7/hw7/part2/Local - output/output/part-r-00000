@@ -1,0 +1,38 @@
+ad	fleas2.txt: 1
+
+and	fleas2.txt: 2
+
+backs	fleas1.txt: 1
+
+betwixt	fleas3.txt: 1
+
+bite	fleas1.txt: 1
+
+finitum	fleas2.txt: 1
+
+fleas	fleas2.txt: 1,fleas3.txt: 2,fleas1.txt: 2
+
+great	fleas1.txt: 1
+
+have	fleas1.txt: 1,fleas2.txt: 1,fleas3.txt: 1
+
+lesser	fleas2.txt: 1
+
+little	fleas2.txt: 1,fleas1.txt: 1
+
+many	fleas3.txt: 2
+
+on	fleas2.txt: 1
+
+so	fleas2.txt: 1
+
+still	fleas2.txt: 1
+
+their	fleas1.txt: 1
+
+them	fleas1.txt: 1,fleas3.txt: 1
+
+to	fleas1.txt: 1
+
+upon	fleas1.txt: 1
+

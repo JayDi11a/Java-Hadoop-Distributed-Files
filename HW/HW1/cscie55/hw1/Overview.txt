@@ -1,0 +1,60 @@
+Title: Elevator Simulation
+
+Author: Gerald Trotman
+
+Date: 9/16/2015
+
+
+"Brief Description:"
+
+The elevator stars on the "0th Floor" which is ground level.
+
+The passengers are loaded using the boardPassengers method giving it arbitrary values.
+
+Then, those values are stored in an array called destination_requests where the value of each index increases
+the more people request that floor and decreases as people get off.
+
+If the Elevator is request for a specific floor the move method calls stop instead of
+going up and increasing the current_floor number.
+
+The stop method calls the departPassengers method where the passangers get off the current floor
+The move method is called to reanimate the Elevator.
+
+This process stops once the loop cycles through.
+
+
+"Goals:"
+
+To get the desired output from the spec
+
+"See Also:"
+N/A
+
+
+"Assumptions:"
+
+The passengers are loaded from the first floor before the elevator moves.
+There was no set destination for the passengers.
+I made the wild assumption that there was some relationship between the passengers, the stops and the floors but I couldn't seem to mimic this algorithm to the test output exactly.
+
+
+"Current procedure/functionality:"
+
+It compiles and the logic for input and output are valid, it unfortunately stray from the exact output as specified.
+
+"How things work now:"
+
+staying within the boundaries set by the number of floors is this relationship between floors and the number of passengars on them.
+
+
+
+"How to run the assignment:"
+
+From your parent directory, compile first by running:
+
+javac cscie55/hw1/*.java
+
+Then follow up by running:
+
+java -cp . cscie55.hw1.ElevatorTest
+

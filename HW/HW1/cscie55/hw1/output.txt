@@ -1,0 +1,9 @@
+
+
+
+Floor 1: 3 passengers
+Floor 3: 2 passengers
+Floor 4: 1 passengers
+Floor 7: 0 passengers
+
+
